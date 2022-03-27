@@ -8,5 +8,5 @@ Refer to the links mentioned below for more details of the project and its imple
 [Project Schedule](https://github.com/cu-ecen-aeld/final-project-ruchitnaik/wiki/Final-Project-Schedule)  
 
 ## Project Team Members  
-- Ruchit Naik  
-- Divyesh Patel  
+- Ruchit Naik (ruchit.naik@colorado.edu)  
+- Divyesh Patel (divyesh.patel@colorado.edu)  
