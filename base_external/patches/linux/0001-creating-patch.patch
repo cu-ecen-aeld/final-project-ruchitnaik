@@ -1,0 +1,62 @@
+From cffd7b728ce87d59f479935ebed7945ed460e9d4 Mon Sep 17 00:00:00 2001
+From: ruchitnaik <ruchit.naik@colorado.edu>
+Date: Sun, 10 Apr 2022 13:56:02 -0600
+Subject: [PATCH] creating patch
+
+---
+ .../arch/arm/boot/dts/am335x-bone-common.dtsi | 30 ++++++++++++++-----
+ 1 file changed, 22 insertions(+), 8 deletions(-)
+
+diff --git a/arch/arm/boot/dts/am335x-bone-common.dtsi b/arch/arm/boot/dts/am335x-bone-common.dtsi
+index 8947efd..d52f248 100644
+--- a/arch/arm/boot/dts/am335x-bone-common.dtsi
++++ b/arch/arm/boot/dts/am335x-bone-common.dtsi
+@@ -79,12 +79,19 @@
+ 		>;
+ 	};
+ 
+-//	i2c2_pins: pinmux_i2c2_pins {
+-//		pinctrl-single,pins = <
+-//			AM33XX_IOPAD(0x978, PIN_INPUT_PULLUP | MUX_MODE3)	/* uart1_ctsn.i2c2_sda */
+-//			AM33XX_IOPAD(0x97c, PIN_INPUT_PULLUP | MUX_MODE3)	/* uart1_rtsn.i2c2_scl */
+-//		>;
+-//	};
++	i2c1_pins: pinmux_i2c1_pins {
++		pinctrl-single,pins = <
++			AM33XX_IOPAD(0x958, PIN_INPUT_PULLUP | MUX_MODE2)	/* i2c0_sda.i2c0_sda */
++			AM33XX_IOPAD(0x95c, PIN_INPUT_PULLUP | MUX_MODE2)	/* i2c0_scl.i2c0_scl */
++		>;
++	};
++
++	i2c2_pins: pinmux_i2c2_pins {
++		pinctrl-single,pins = <
++			AM33XX_IOPAD(0x978, PIN_INPUT_PULLUP | MUX_MODE3)	/* uart1_ctsn.i2c2_sda */
++			AM33XX_IOPAD(0x97c, PIN_INPUT_PULLUP | MUX_MODE3)	/* uart1_rtsn.i2c2_scl */
++		>;
++	};
+ 
+ 	uart0_pins: pinmux_uart0_pins {
+ 		pinctrl-single,pins = <
+@@ -285,10 +292,17 @@
+ 	};
+ };
+ 
++&i2c1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2c1_pins>;
++
++	status = "okay";
++	clock-frequency = <100000>;
++};
++
+ &i2c2 {
+ 	pinctrl-names = "default";
+-	//pinctrl-0 = <&i2c2_pins>;
+-	pinctrl-0 = <>;
++	pinctrl-0 = <&i2c2_pins>;
+ 
+ 	status = "okay";
+ 	clock-frequency = <400000>;
+-- 
+2.25.1
+
