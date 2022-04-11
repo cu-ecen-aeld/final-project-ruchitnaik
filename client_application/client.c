@@ -1,3 +1,15 @@
+/**
+ *  @file	aesdsocket.c
+ *  @author	Ruchit Naik
+ *  @date	04/10/2022
+ *	@brief	The file contains code to create IPv4 socket over port 3457. It receives string
+ *			and write to a temporary file. The socket then reads the file and sends it back
+ *			to the client. The socket handles SIGINT and SIGTERM to terminate the process
+ *			smoothly and delete the temporary file used to write the string. The code also
+ *			daemonizes the socket to run in background.
+ *	@ref	https://www.delftstack.com/howto/c/getaddrinfo-in-c/
+ *	        https://beej.us/guide/bgnet/html/#a-simple-stream-server
+**/
 #include <stdio.h>
 #include <errno.h>
 #include <netdb.h>
@@ -125,8 +137,9 @@ int main(int argc, char **argv){
                 ptr++;
             }
         }
-
-        ptr = buf;
+        printf("Received string from Server: %s", buf);
+        char test_buf[] = "response from client\n";
+        ptr = test_buf;
         if(rc == SUCCESSFUL_READ){
             while(1){
                 ret = send(fd_socket, ptr, 1, 0);
