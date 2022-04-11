@@ -1,5 +1,5 @@
 /**
- *  @file	aesdsocket.c
+ *  @file	client.c
  *  @author	Ruchit Naik
  *  @date	04/10/2022
  *	@brief	The file contains code to create IPv4 socket over port 3457. It receives string
