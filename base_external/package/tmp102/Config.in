@@ -1,0 +1,5 @@
+
+config BR2_PACKAGE_TMP102
+	bool "tmp102"
+	help
+	  installing temperature sensor detection code on BBB board
