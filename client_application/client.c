@@ -138,7 +138,13 @@ int main(int argc, char **argv){
             }
         }
         printf("Received string from Server: %s", buf);
-        char test_buf[] = "response from client\n";
+        // char test_buf[] = "response from client\n";
+        char test_buf[100];
+
+        //Reading STDIO from terminal
+        printf("Enter Command\n");
+        scanf("%s", test_buf);
+        
         ptr = test_buf;
         if(rc == SUCCESSFUL_READ){
             while(1){
