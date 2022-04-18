@@ -95,6 +95,7 @@ int main(int argc, char **argv){
     if(p == NULL){
         //Unable to connect to any IP on the socket
         syslog(LOG_ERR, "Unable to connect to any IP");
+        printf("Unable to connect to %s\n", argv[1]);
         return -1;
     }
 
@@ -137,12 +138,13 @@ int main(int argc, char **argv){
                 ptr++;
             }
         }
-        printf("Received string from Server: %s", buf);
+        printf("Response from Server: %s", buf);
         // char test_buf[] = "response from client\n";
         char test_buf[100];
+        memset(test_buf, 0, sizeof(test_buf));
 
         //Reading STDIO from terminal
-        printf("Enter Command\n");
+        printf("\nEnter Command\n");
         scanf("%s", test_buf);
         
         ptr = test_buf;
