@@ -6,7 +6,7 @@
 ##############################################################
 
 
-TMP102_VERSION = '2f2f086e0b3e2870298ae3e3706dd9f6e98efd14'
+TMP102_VERSION = '5194258468074c45bb61ab013552cf8ce558b5a6'
 # Note: Be sure to reference the *ssh* repository URL here (not https) to work properly
 # with ssh keys and the automated build/test system.
 # Your site should start with git@github.com:
